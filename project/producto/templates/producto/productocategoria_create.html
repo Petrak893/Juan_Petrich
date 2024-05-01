@@ -3,5 +3,8 @@
 {% endblock titulo %}
 Categoria de productos: creacion
 {% block contenido %}
-    <p>contenido</p>
+    <form action="" method="post"></form>
+    {% csrf_token %}
+    {{ form.as_table }}
+    <button type="submit" class="btn btn-primary  ">Guardar</button>
 {% endblock contenido %}
