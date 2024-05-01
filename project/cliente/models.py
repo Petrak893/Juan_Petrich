@@ -7,14 +7,14 @@ class Nombre(models.Model):
         return self.nombre
 
 class Telefono(models.Model):
-    num_tel = models.IntegerField
+    num_tel = models.IntegerField()
     Nombre = models.ForeignKey(Nombre, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
-        return self.num_tel
+        return str(self.num_tel)
 
 class Email(models.Model):
-    correo_e = models.EmailField
+    correo_e = models.EmailField()
     nombre = models.ForeignKey(Nombre, on_delete=models.SET_NULL, null=True, blank=True)
     
     def __str__(self):
