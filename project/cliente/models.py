@@ -7,23 +7,21 @@ class Nombre(models.Model):
         return self.nombre
 
 class Telefono(models.Model):
-    num_tel = models.IntegerField(null=True)
-    Nombre = models.ForeignKey(Nombre, on_delete=models.SET_NULL, null=True, blank=True)
+    num_tel = models.CharField(max_length=200)
 
     def __str__(self):
         return str(self.num_tel)
 
 class Email(models.Model):
-    correo_e = models.EmailField(null=True)
-    nombre = models.ForeignKey(Nombre, on_delete=models.SET_NULL, null=True, blank=True)
+    correo_e = models.CharField(max_length=200)
     
     def __str__(self):
         return self.correo_e
     
 class Cliente(models.Model):
-    nombre = models.ForeignKey(Nombre, on_delete=models.SET_NULL, null=True, blank=True)
-    telefono = models.ForeignKey(Telefono, on_delete=models.SET_NULL, null=True, blank=True)
-    correo_e = models.ForeignKey(Email, on_delete=models.SET_NULL, null=True, blank=True)
+    nombre = models.ForeignKey(Nombre, on_delete=models.SET_NULL, null=True, blank=True, related_name='clientes')
+    telefono = models.ForeignKey(Telefono, on_delete=models.SET_NULL, null=True, blank=True, related_name='clientes')
+    correo_e = models.ForeignKey(Email, on_delete=models.SET_NULL, null=True, blank=True, related_name='clientes')
 
     def __str__(self):
         return str(self.nombre)

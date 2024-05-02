@@ -1,9 +1,16 @@
 {% extends 'core/base.html' %}
 {% block titulo %}
-    Clientes
+    clientes
 {% endblock titulo %}
 {% block contenido %}
+    <div class="fs-3 pb-4 ">
+        <a href="{% url 'cliente:cliente_create' %} ">Crear de clientes</a>
+    </div>
+    <div class="py-lg-4 "> <form action="{% url 'cliente:home' %}" method="get">
+        <input type="text" name="consulta" placeholder="Buscar...">
+    </form> </div>
+
     <ul>
-        {% for cliente in clientes %}<li>{{ producto }}</li>{% endfor %}
+        {% for cliente in clientes %}<li>{{ cliente }}</li>{% endfor %}
     </ul>
 {% endblock contenido %}

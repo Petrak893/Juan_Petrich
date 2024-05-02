@@ -1,13 +1,11 @@
 {% extends 'core/base.html' %}
-
 {% block titulo %}
-Categoria de productos: creacion
+    Crear cliente
 {% endblock titulo %}
-
 {% block contenido %}
     <form action="" method="post">
         {% csrf_token %}
-        {{ form.as_table }}
+        {{ cliente_form.as_p }}
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 {% endblock contenido %}
