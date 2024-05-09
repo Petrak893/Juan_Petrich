@@ -1,30 +1,36 @@
 from django.db import models
 
-class Nombre(models.Model):
-    nombre = models.CharField(max_length=200)
+class Cliente(models.Model):
+    nombre = models.CharField(max_length=200, null=True, blank=True)
+    telefono = models.CharField(max_length=20, null=True, blank=True)
+    email = models.CharField(max_length=100, null=True, blank=True)
+
+    def __str__(self):
+        return self.nombre
     
+    class Meta:
+        verbose_name = "Cliente"
+        verbose_name_plural = "Clientes"
+
+
+class Nombre(models.Model):
+    cliente = models.OneToOneField(Cliente, on_delete=models.SET_NULL, null=True, blank=True, related_name='nombre_rel')
+    nombre = models.CharField(max_length=200, null=True, blank=True)
+
     def __str__(self):
         return self.nombre
 
 class Telefono(models.Model):
-    num_tel = models.CharField(max_length=200)
+    cliente = models.OneToOneField(Cliente, on_delete=models.SET_NULL, null=True, blank=True, related_name='telefono_rel')
+    telefono = models.CharField(max_length=20, null=True, blank=True)
 
     def __str__(self):
-        return str(self.num_tel)
+        return self.telefono
 
 class Email(models.Model):
-    correo_e = models.CharField(max_length=200)
-    
-    def __str__(self):
-        return self.correo_e
-    
-class Cliente(models.Model):
-    nombre = models.ForeignKey(Nombre, on_delete=models.SET_NULL, null=True, blank=True, related_name='clientes')
-    telefono = models.ForeignKey(Telefono, on_delete=models.SET_NULL, null=True, blank=True, related_name='clientes')
-    correo_e = models.ForeignKey(Email, on_delete=models.SET_NULL, null=True, blank=True, related_name='clientes')
+    cliente = models.OneToOneField(Cliente, on_delete=models.SET_NULL, null=True, blank=True,  related_name='email_rel')
+    email = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self):
-        return str(self.nombre)
-    class Meta:
-        verbose_name = "Cliente"
-        verbose_name_plural = "Clientes"
+        return self.email
+    
