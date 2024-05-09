@@ -8,4 +8,5 @@ class ProductoCategoriaForm(forms.ModelForm):
         widgets = {
             "nombre": forms.TextInput(attrs={"class": "form-control"}),
             "descripcion": forms.TextInput(attrs={"class": "form-control"}),
+            "numero de serie": forms.TextInput(attrs={"class": "form-control"}),
         }
