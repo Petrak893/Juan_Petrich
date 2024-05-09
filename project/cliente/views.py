@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import Cliente
-from .forms import ClienteForm 
+from .forms import ClienteForm, NombreForm, TelefonoForm, EmailForm
 
 def home(request):
     if "consulta" in request.GET:
         consulta = request.GET["consulta"]
         clientes = Cliente.objects.filter(nombre__icontains=consulta)
+    else:
         clientes = Cliente.objects.all()
 
     context = {"clientes": clientes}
