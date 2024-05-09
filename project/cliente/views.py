@@ -5,8 +5,7 @@ from .forms import ClienteForm
 def home(request):
     if "consulta" in request.GET:
         consulta = request.GET["consulta"]
-        clientes = Cliente.objects.filter(nombre__icontains=consulta)  # Corrected filtering logic
-    else:
+        clientes = Cliente.objects.filter(nombre__icontains=consulta)
         clientes = Cliente.objects.all()
 
     context = {"clientes": clientes}
@@ -17,7 +16,7 @@ def crear_cliente(request):
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('cliente:home')  # Corrected redirection to the client list page
+            return redirect('cliente:home')
     else:
         form = ClienteForm()
     return render(request, 'cliente/cliente_create.html', {'form': form})
