@@ -11,7 +11,7 @@
     </form> </div>
 
     <ul>
-        {% for producto in productos %}<li>{{ producto }}
+        {% for producto in object_list %}<li>{{ producto }}
             <a href="{% url 'producto:porductocategoria_detail' %}">Detalle</a>
             <a href="{% url 'producto:porductocategoria_update' %}">Cambiar</a>
             <a href="{% url 'producto:porductocategoria_delete' %}">Borrar</a>

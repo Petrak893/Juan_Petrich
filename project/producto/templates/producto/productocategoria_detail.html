@@ -4,11 +4,11 @@
 {% endblock titulo %}
 {% block contenido %}
     <ul>
-        <li>Nombre: {{producto.nombre}}</li>
-        <li>Descripcion: {{producto.descripcion}}</li>
+        <li>Nombre: {{object.nombre}}</li>
+        <li>Descripcion: {{object.descripcion}}</li>
     </ul>
 
-    <ul>
-        {% for producto in productos %}<li>{{ producto }}</li>{% endfor %}
-    </ul>
+    <div class="fs-3 pb-4 ">
+        <a href="{% url 'producto:home' %} ">Volver al inicio de Producto</a>
+    </div>
 {% endblock contenido %}
