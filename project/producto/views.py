@@ -8,7 +8,13 @@ def home(request):
 
 class ProductoCategoriaList(ListView):
     model = models.ProductoCategoria
-   
+    def get_queryset(self):
+        if self.request.GET.get("consulta"):
+            consulta = self.request.GET.get("consulta")
+            object_list = models.ProductoCategoria.objects.filter(nombre__incontains=consulta)
+        else:
+            object_list = models.ProductoCategoria.objects.all()
+        return object_list
 
 class ProductoCategoriaCreate(CreateView):
     model = models.ProductoCategoria
