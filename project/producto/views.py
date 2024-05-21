@@ -17,7 +17,7 @@ class ProductoCategoriaList(ListView):
             object_list = models.ProductoCategoria.objects.all()
         return object_list
 
-class ProductoCategoriaCreate(CreateView):
+class ProductoCategoriaCreate(LoginRequiredMixin, CreateView):
     model = models.ProductoCategoria
     form_class = forms.ProductoCategoriaForm
     success_url = reverse_lazy("producto: home")
@@ -26,7 +26,7 @@ class ProductoCategoriaDetail(DetailView):
     model = models.ProductoCategoria
    
 
-class ProductoCategoriaUpdate(UpdateView):
+class ProductoCategoriaUpdate(LoginRequiredMixin, UpdateView):
     model = models.ProductoCategoria
     form_class = forms.ProductoCategoriaForm
     success_url = reverse_lazy("producto: productocategoria_list")
