@@ -15,7 +15,7 @@ class ProductoCategoria(models.Model):
         verbose_name_plural = "categoria de productos"
 
 class Producto(models.Model):
-    categoria_id = models.ForeignKey(ProductoCategoria, null=True, blank=True, on_delete=models.SET_NULL),
+    categoria_id = models.ForeignKey(ProductoCategoria, null=True, blank=True, on_delete=models.SET_NULL)
     nombre = models.CharField(max_length=100)
     unidad_medida = models.CharField(max_length=100)
     cantidad = models.FloatField()

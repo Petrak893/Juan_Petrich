@@ -1,20 +1,14 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-Categoria de Producto 
-    {% if form.intance.pk %}
-    Editar
-    {% else %}
-    Crear
-    {% endif %}
-Categoria de productos: creacion
+Productos: Eliminar
 {% endblock titulo %}
 
 {% block contenido %}
+<p class="fs-5 fst-italic  ">Confimar"{{producto.nombre}}"?</p>
     <form action="" method="post">
         {% csrf_token %}
-        {{ form.as_table }}
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-danger ">Confirmar</button>
     </form>
     <div class="fs-3 pb-4 ">
         <a href="{% url 'producto:home' %} ">Volver al inicio de Producto</a>
