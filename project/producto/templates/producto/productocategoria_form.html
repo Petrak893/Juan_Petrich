@@ -1,6 +1,12 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
+Producto 
+    {% if form.intance.pk %}
+    Editar
+    {% else %}
+    Crear
+    {% endif %}
 Categoria de productos: creacion
 {% endblock titulo %}
 
