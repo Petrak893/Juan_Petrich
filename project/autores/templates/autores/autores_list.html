@@ -11,9 +11,10 @@
     <ul>
         {% for autor in object_list %}
         <li>
-            <a href="{% url 'autores_detail' autor.pk %}">Detalle</a>
-            (<a href="{% url 'autores_update' autor.pk %}">Cambiar</a> | 
-            <a href="{% url 'autores_delete' autor.pk %}">Borrar</a>)
+            {{ autor.nombre }}
+            <a href="{% url 'autores:autores_detail' autor.pk %}">Detalle</a>
+            <a href="{% url 'autores:autores_update' autor.pk %}">Cambiar</a> 
+            <a href="{% url 'autores:autores_delete' autor.pk %}">Borrar</a>
         </li>
         {% endfor %}
     </ul>

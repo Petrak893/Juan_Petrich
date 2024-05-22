@@ -21,6 +21,6 @@ app_name = admin
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("core.urls")),
-    path('cliente/', include("cliente.urls")),
+    path('autores/', include("autores.urls")),
     path('personaje/', include("personaje.urls")),
 ]

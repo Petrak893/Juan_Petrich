@@ -5,7 +5,7 @@ from . import models, forms
 from django.urls import reverse_lazy
 
 def home(request):
-    return render(request, "personaje/index.html")
+    return render(request, "autores/index.html")
 
 class AutorCreateView(CreateView):
     model = models.Autor

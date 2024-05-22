@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+{% block titulo %}
+    Detalle Autores
+{% endblock titulo %}
+{% block contenido %}
+    <ul>
+        <h1>{{ object.nombre }}</h1>
+    <p>
+        {% if object.es_dibujante %}
+            Es dibujante
+        {% endif %}
+        {% if object.es_dibujante and object.es_escritor %}
+            y
+        {% endif %}
+        {% if object.es_escritor %}
+            Es escritor
+        {% endif %}
+    </p>
+    <p>Edad: {{ object.edad }}</p>
+    <p>Fecha de nacimiento: {{ object.fecha_nacimiento }}</p>
+    <p>Biografía: {{ object.biografia }}</p>
+    </ul>
+
+    <div class="fs-3 pb-4 ">
+        <a href="{% url 'autores:home' %} ">Volver al inicio de Autores</a>
+    </div>
+{% endblock contenido %}

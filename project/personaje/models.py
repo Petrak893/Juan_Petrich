@@ -13,7 +13,6 @@ class NivelMutante(models.Model):
     
     class Meta:
         verbose_name = "Nivel del Mutante"
-        verbose_name_plural = "Nivel de los Mutantes"
 
 class Personaje(models.Model):
     categoria_id = models.ForeignKey(NivelMutante, null=True, blank=True, on_delete=models.SET_NULL)
