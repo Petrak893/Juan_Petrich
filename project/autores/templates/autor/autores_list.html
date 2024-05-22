@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+{% block titulo %}
+    Lista de Autores
+{% endblock titulo %}
+{% block contenido %}
+    <div class="py-lg-4 ">
+        <form action="{% url 'autores:autores_list' %}" method="get">
+            <input type="text" name="consulta" placeholder="Buscar...">
+        </form>
+    </div>
+    <ul>
+        {% for autor in object_list %}
+        <li>
+            <a href="{% url 'autores_detail' autor.pk %}">Detalle</a>
+            (<a href="{% url 'autores_update' autor.pk %}">Cambiar</a> | 
+            <a href="{% url 'autores_delete' autor.pk %}">Borrar</a>)
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="fs-3 pb-4 ">
+        <a href="{% url 'autores:home' %} ">Volver al inicio de Autores</a>
+    </div>
+{% endblock contenido %}

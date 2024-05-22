@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+Persoanjes: Actualizar
+{% endblock titulo %}
+
+{% block contenido %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+    <div class="fs-3 pb-4 ">
+        <a href="{% url 'autores:autores_list' %} ">Volver a lista de Autores</a>
+    </div>
+{% endblock contenido %}
