@@ -1,13 +1,13 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-Categoria de Producto 
+Nivel Mutante
     {% if form.intance.pk %}
     Editar
     {% else %}
     Crear
     {% endif %}
-Categoria de productos: creacion
+Nivel Mutante: Creacion
 {% endblock titulo %}
 
 {% block contenido %}
@@ -17,6 +17,6 @@ Categoria de productos: creacion
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
     <div class="fs-3 pb-4 ">
-        <a href="{% url 'producto:home' %} ">Volver al inicio de Producto</a>
+        <a href="{% url 'personaje:home' %} ">Volver al inicio de Personajes</a>
     </div>
 {% endblock contenido %}

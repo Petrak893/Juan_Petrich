@@ -1,7 +1,13 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-Categoria de productos: Actualizar
+Personaje
+    {% if form.intance.pk %}
+    Editar
+    {% else %}
+    Crear
+    {% endif %}
+Personaje: creacion
 {% endblock titulo %}
 
 {% block contenido %}
@@ -11,6 +17,6 @@ Categoria de productos: Actualizar
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
     <div class="fs-3 pb-4 ">
-        <a href="{% url 'producto:producto_list' %} ">Volver a lista de Producto</a>
+        <a href="{% url 'personaje:home' %} ">Volver al inicio de Personajes</a>
     </div>
 {% endblock contenido %}

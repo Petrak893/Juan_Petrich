@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% block titulo %}
+    Lista de Personajes
+{% endblock titulo %}
+{% block contenido %}
+    <div class="py-lg-4 ">
+        <form action="{% url 'personaje:personaje_list' %}" method="get">
+            <input type="text" name="consulta" placeholder="Buscar...">
+        </form>
+    </div>
+    <ul>
+        {% for personaje in object_list %}
+            <li>
+                {{ personaje.nombre }}
+                <a href="{% url 'personaje:personaje_detail' personaje.id %}">Detalle</a>
+                <a href="{% url 'personaje:personaje_update' personaje.id %}">Cambiar</a>
+                <a href="{% url 'personaje:personaje_delete' personaje.id %}">Borrar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="fs-3 pb-4 ">
+        <a href="{% url 'personaje:home' %} ">Volver al inicio de Persoanjes</a>
+    </div>
+{% endblock contenido %}

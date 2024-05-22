@@ -1,17 +1,18 @@
 from django import forms
 from . import models
 
-class ProductoCategoriaForm(forms.ModelForm):
+class NivelMutanteForm(forms.ModelForm):
     class Meta:
-        model = models.ProductoCategoria
+        model = models.NivelMutante
         fields = "__all__"
         widgets = {
             "nombre": forms.TextInput(attrs={"class": "form-control"}),
+            "numero del nivel": forms.TextInput(attrs={"class": "form-control"}),
             "descripcion": forms.TextInput(attrs={"class": "form-control"}),
-            "numero de serie": forms.TextInput(attrs={"class": "form-control"}),
+            
         }
 
-class ProductoForm(forms.ModelForm):
+class PersonajeForm(forms.ModelForm):
     class Meta:
-        model = models.Producto
+        model = models.Personaje
         fields = "__all__"

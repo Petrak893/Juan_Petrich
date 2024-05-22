@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% block titulo %}
+    Lista
+{% endblock titulo %}
+{% block contenido %}
+    <div class="py-lg-4 ">
+        <form action="{% url 'personaje:nivelmutante_list' %}" method="get">
+            <input type="text" name="consulta" placeholder="Buscar...">
+        </form>
+    </div>
+    <ul>
+        {% for nivelmutante in object_list %}
+            <li>
+                {{ nivelmutante.nombre }}
+                <a href="{% url 'personaje:nivelmutante_detail' nivelmutante.id %}">Detalle</a>
+                <a href="{% url 'personaje:nivelmutante_update' nivelmutante.id %}">Cambiar</a>
+                <a href="{% url 'personaje:nivelmutante_delete' nivelmutante.id %}">Borrar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="fs-3 pb-4 ">
+        <a href="{% url 'personaje:home' %} ">Volver al inicio de Personajes</a>
+    </div>
+{% endblock contenido %}
