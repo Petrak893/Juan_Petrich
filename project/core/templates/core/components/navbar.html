@@ -26,12 +26,12 @@
                     <a class="nav-link" href="{% url 'personaje:home' %}">Personajes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-bg-info ">{{ user.username }}</a>
+                    <a class="nav-link text-bg-info">{{ user.username }}</a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item">
                     <form action="{% url 'core:logout' %}" method="post">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-dark ">Logout</button>
+                        <button type="submit" class="btn btn-dark">Logout</button>
                     </form>
                 </li>
                 {% else %}
