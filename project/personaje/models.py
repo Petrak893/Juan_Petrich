@@ -22,10 +22,11 @@ class Personaje(models.Model):
     poderes = models.CharField(max_length=100)
     edad = models.IntegerField(null=True, blank=True)
     biografia = models.CharField(max_length=250, null=True, blank=True, verbose_name="descripción")
-    fecha_creacion = models.DateField(null=True, blank=True, editable=False, verbose_name="Fecha de creacion")
+    fecha_creacion = models.DateField(default=timezone.now, null=True, blank=True, editable=False, verbose_name="Fecha de creacion")
 
     def __str__(self) -> str:
-        return f"{self.nombre} {self.nombre_real} {self.categoria_id}"
+        categoria_nombre = self.categoria_id.nombre if self.categoria_id else "Sin categoría"
+        return f"{self.nombre} ({self.nombre_real}), Categoría: {categoria_nombre}"
 
     class Meta:
         verbose_name = "Personaje"
