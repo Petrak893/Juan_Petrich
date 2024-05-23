@@ -1,24 +1,41 @@
 {% extends 'core/base.html' %}
+
 {% block titulo %}
     Lista de Autores
 {% endblock titulo %}
+
 {% block contenido %}
-    <div class="py-lg-4 ">
-        <form action="{% url 'autores:autores_list' %}" method="get">
-            <input type="text" name="consulta" placeholder="Buscar...">
+    <div class="py-lg-4">
+        <form action="{% url 'autores:autores_list' %}" method="get" class="mb-4">
+            <input type="text" name="consulta" placeholder="Buscar..." class="form-control">
         </form>
     </div>
-    <ul>
+
+    <div class="row">
         {% for autor in object_list %}
-        <li>
-            {{ autor.nombre }}
-            <a href="{% url 'autores:autores_detail' autor.pk %}">Detalle</a>
-            <a href="{% url 'autores:autores_update' autor.pk %}">Cambiar</a> 
-            <a href="{% url 'autores:autores_delete' autor.pk %}">Borrar</a>
-        </li>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ autor.nombre }}</h2>
+                        <p class="card-text">
+                            {% if autor.imagen %}
+                                <img src="{{ autor.imagen.url }}" alt="{{ autor.nombre }}" height="200" width="200"><br>
+                            {% else %}
+                                <strong>Imagen:</strong> No disponible<br>
+                            {% endif %}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-primary btn-sm" href="{% url 'autores:autores_detail' autor.id %}">Detalle</a>
+                        <a class="btn btn-secondary btn-sm" href="{% url 'autores:autores_update' autor.id %}">Cambiar</a>
+                        <a class="btn btn-danger btn-sm" href="{% url 'autores:autores_delete' autor.id %}">Borrar</a>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
-    </ul>
-    <div class="fs-3 pb-4 ">
-        <a href="{% url 'autores:home' %} ">Volver al inicio de Autores</a>
+    </div>
+
+    <div class="fs-3 pb-4">
+        <a href="{% url 'autores:home' %}">Volver al inicio de Autores</a>
     </div>
 {% endblock contenido %}

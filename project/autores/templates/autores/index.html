@@ -1,21 +1,23 @@
 {% extends 'core/base.html' %}
+
 {% block titulo %}
     Autores
 {% endblock titulo %}
+
 {% block contenido %}
-    <div class="fs-3 pb-4 ">
-        <a href="{% url 'autores:autores_create' %} ">Crear categorias de Autores</a>
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="fs-3 pb-3">
+                    <a href="{% url 'autores:autores_create' %}" class="btn btn-primary">Crear Autores</a>
+                </div>
+                <div class="pb-3">
+                    <a href="{% url 'autores:autores_list' %}" class="btn btn-primary">Lista de Autores</a>
+                </div>
+            </div>
+        <div class="fs-3 pb-4">
+            <a href="{% url 'core:home' %}" class="btn btn-secondary">Volver al inicio</a>
+        </div>
     </div>
-    <div>
-        <a href="{% url 'autores:autores_list' %} ">Lista de categoria de Autores</a>
-    </div>
-    <div class="fs-3 pb-4 ">
-        <a href="{% url 'autores:autores_create' %} ">Crear de autoress</a>
-    </div>
-    <div>
-        <a href="{% url 'autores:autores_list' %} ">Lista de personajes</a>
-    </div>
-    <div class="fs-3 pb-4 ">
-        <a href="{% url 'core:home' %} ">Volver al inicio</a>
-    </div>
+</div>
 {% endblock contenido %}

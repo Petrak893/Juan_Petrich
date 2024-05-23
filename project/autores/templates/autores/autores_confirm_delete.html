@@ -1,16 +1,18 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-Autores: Eliminar
+    Eliminar Autor
 {% endblock titulo %}
 
 {% block contenido %}
-<p class="fs-5 fst-italic  ">Confimar"{{object.nombre}}"?</p>
-    <form action="" method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger ">Confirmar</button>
-    </form>
-    <div class="fs-3 pb-4 ">
-        <a href="{% url 'Autores:home' %} ">Volver al inicio de Autores</a>
+    <div class="container py-4">
+        <p class="fs-5 fst-italic">¿Confirmar eliminación de "{{ object.nombre }}"?</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Confirmar</button>
+        </form>
+        <div class="fs-3 pb-4">
+            <a href="{% url 'autores:home' %}" class="btn btn-secondary">Volver al inicio del Autor</a>
+        </div>
     </div>
 {% endblock contenido %}
