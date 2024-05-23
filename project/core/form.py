@@ -28,5 +28,6 @@ class CustomUserCreationForm(UserCreationForm):
         if commit:
             user.save()
             profile_picture = self.cleaned_data.get('profile_picture')
-            profile = Profile.objects.create(user=user, profile_picture=profile_picture)
+            if profile_picture:
+                profile = Profile.objects.create(user=user, profile_picture=profile_picture)
         return user
