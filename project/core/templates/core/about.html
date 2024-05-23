@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block titulo %}
+    Sobre Mi
+{% endblock titulo %}
+{% block contenido %}
+<div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-lg-7">
+        <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'core/images/Yo.webp' %}" alt="Yo" />
+    </div>
+    <div class="col-lg-5">
+        <h1 class="display-4">Juan Petrich</h1>
+        <p class="lead">Bienvenidos a mi blog sobre los X-Men, un espacio donde podrás explorar información sobre tus personajes favoritos y descubrir algunos nuevos. Además, conocerás a los genios detrás de la creación de este increíble universo.</p>
+        <p>Espero que disfrutes explorando este sitio tanto como yo disfruto compartiendo mi pasión por los X-Men y aprendiendo sobre ellos.</p>
+    </div>
+</div>
+{% endblock contenido %}
