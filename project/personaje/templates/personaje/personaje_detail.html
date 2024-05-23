@@ -3,26 +3,26 @@
     Detalle Personajes
 {% endblock titulo %}
 {% block contenido %}
-    <ul>
-        <li>Nombre: {{ object.nombre }}</li>
-        <li>Nombre Real: {{ object.nombre_real }}</li>
-        <li>Nivel Mutante: {{ object.categoria_id }}</li>
-        <li>Poderes: {{ object.poderes }}</li>
-        <li>Edad: {{ object.edad }}</li>
-        <li>Biografia: {{ object.biografia }}</li>
-        {% if object.imagen %}
-            <li>
-                Imagen:
-                <img src="{{ object.imagen.url }}"
-                     alt="{{ object.nombre }}"
-                     height="200"
-                     width="200">
-            </li>
-        {% else %}
-            <li>Imagen: No disponible</li>
-        {% endif %}
-    </ul>
-    <div class="fs-3 pb-4 ">
-        <a href="{% url 'personaje:home' %} ">Volver al inicio de Personajes</a>
+<div class="col-md-4 mb-5">
+    <div class="card h-100">
+        <div class="card-body">
+            <h2 class="card-title">{{ object.nombre }}</h2>
+            <p class="card-text">
+                {% if object.imagen %}
+                    <img src="{{ object.imagen.url }}" alt="{{ object.nombre }}" height="200" width="200"><br>
+                {% else %}
+                    <strong>Imagen:</strong> No disponible<br>
+                {% endif %}
+                <strong>Nombre Real:</strong> {{ object.nombre_real }}<br>
+                <strong>Nivel Mutante:</strong> {{ object.categoria_id }}<br>
+                <strong>Poderes:</strong> {{ object.poderes }}<br>
+                <strong>Edad:</strong> {{ object.edad }}<br>
+                <strong>Biografía:</strong> {{ object.biografia }}<br>
+            </p>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-primary btn-sm" href="{% url 'personaje:personaje_list' %}">Volver al inicio de Personajes</a>
+        </div>
     </div>
+</div>
 {% endblock contenido %}
