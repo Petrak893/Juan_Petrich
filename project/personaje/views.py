@@ -20,7 +20,7 @@ class NivelMutanteList(ListView):
 class NivelMutanteCreate(LoginRequiredMixin, CreateView):
     model = models.NivelMutante
     form_class = forms.NivelMutanteForm
-    success_url = reverse_lazy("personaje:home")
+    success_url = reverse_lazy("personaje:personaje_list")
 
 class NivelMutanteDetail(DetailView):
     model = models.NivelMutante
@@ -48,7 +48,7 @@ class PersonajeList(ListView):
 class PersonajeCreate(LoginRequiredMixin, CreateView):
     model = models.Personaje
     form_class = forms.PersonajeForm
-    success_url = reverse_lazy("personaje:home")
+    success_url = reverse_lazy("personaje:personaje_list")
 
 class PersonajeDetail(DetailView):
     model = models.Personaje

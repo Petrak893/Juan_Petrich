@@ -10,11 +10,12 @@
 
 {% block contenido %}
     <div class="container py-4">
-        <form action="" method="post">
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.as_table }}
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            {{ form.as_p }}
+            <button type="submit">Guardar</button>
         </form>
+        
         <div class="fs-3 pb-4">
             <a href="{% url 'personaje:home' %}" class="btn btn-secondary">Volver al inicio de Personajes</a>
         </div>
