@@ -16,12 +16,10 @@ class CustomLoginView(LoginView):
 @staff_member_required
 def register(request:HttpRequest) -> HttpResponse:
     if request.method == "POST":
-        form = CustomUserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST, request.FILES)
         if form.is_valid():
-            username = form.cleaned_data["username"]
             form.save()
-            return render (request, "core/index.html", {"mensaje" : "Usuario creado"})
-        ...
+            return render(request, "core/index.html", {"mensaje": "Usuario creado"})
     else:
         form = CustomUserCreationForm()
     return render(request, "core/register.html", {"form": form})

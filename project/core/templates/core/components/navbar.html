@@ -29,6 +29,11 @@
                     <a class="nav-link text-bg-info">{{ user.username }}</a>
                 </li>
                 <li class="nav-item">
+                    {% if profile_picture_url %}
+                    <img src="{{ profile_picture_url }}" alt="Profile Picture" class="rounded-circle" width="40" height="40">
+                    {% endif %}
+                </li>
+                <li class="nav-item">
                     <form action="{% url 'core:logout' %}" method="post">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-dark">Logout</button>

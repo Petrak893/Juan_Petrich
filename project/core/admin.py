@@ -1,3 +1,11 @@
 from django.contrib import admin
 
-# Register your models here.
+from . import models
+
+admin.site.site_title = "Personajes"
+
+
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ("user","profile_picture")
+
+admin.site.register(models.Profile, ProfileAdmin)

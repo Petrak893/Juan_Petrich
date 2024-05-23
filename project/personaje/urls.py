@@ -30,3 +30,4 @@ urlpatterns += [
     path("personaje/delete/<int:pk>", views.PersonajeDelete.as_view(),
          name="personaje_delete"),
 ]
+
