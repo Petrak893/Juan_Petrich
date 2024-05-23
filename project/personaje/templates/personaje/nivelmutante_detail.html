@@ -1,14 +1,19 @@
 {% extends 'core/base.html' %}
-{% block titulo %}
-    Nivel Mutante
-{% endblock titulo %}
-{% block contenido %}
-    <ul>
-        <li>Nombre: {{object.nombre}}</li>
-        <li>Descripcion: {{object.descripcion}}</li>
-    </ul>
 
-    <div class="fs-3 pb-4 ">
-        <a href="{% url 'personaje:home' %} ">Volver al inicio de Personajes</a>
+{% block titulo %}
+    Detalle de Nivel Mutante
+{% endblock titulo %}
+
+{% block contenido %}
+    <div class="container py-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ object.nombre }}</h5>
+                <p class="card-text">Descripción: {{ object.descripcion }}</p>
+            </div>
+        </div>
+        <div class="fs-3 pb-4">
+            <a href="{% url 'personaje:home' %}" class="btn btn-secondary">Volver al inicio de Personajes</a>
+        </div>
     </div>
 {% endblock contenido %}

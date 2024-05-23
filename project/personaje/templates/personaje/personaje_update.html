@@ -1,16 +1,18 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-Persoanjes: Actualizar
+    Actualizar Personaje
 {% endblock titulo %}
 
 {% block contenido %}
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_table }}
-        <button type="submit" class="btn btn-primary">Guardar</button>
-    </form>
-    <div class="fs-3 pb-4 ">
-        <a href="{% url 'personaje:personaje_list' %} ">Volver a lista de personaje</a>
+    <div class="container py-4">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        <div class="fs-3 pb-4">
+            <a href="{% url 'personaje:personaje_list' %}" class="btn btn-secondary">Volver a la lista de Personajes</a>
+        </div>
     </div>
 {% endblock contenido %}

@@ -20,7 +20,7 @@ class Personaje(models.Model):
     nombre_real = models.CharField(max_length=100)
     poderes = models.CharField(max_length=100)
     edad = models.IntegerField(null=True, blank=True)
-    biografia = models.CharField(max_length=250, null=True, blank=True, verbose_name="descripción")
+    descripcion = models.CharField(max_length=250, null=True, blank=True, verbose_name="descripción")
     fecha_creacion = models.DateField(default=timezone.now, null=True, blank=True, editable=False, verbose_name="Fecha de creacion")
     imagen = models.ImageField(upload_to='imagenes_personajes/', null=True, blank=True)
 

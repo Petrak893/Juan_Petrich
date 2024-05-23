@@ -1,21 +1,31 @@
 {% extends 'core/base.html' %}
+
 {% block titulo %}
     Personajes
 {% endblock titulo %}
+
 {% block contenido %}
-    <div class="fs-3 pb-4 ">
-        <a href="{% url 'personaje:nivelmutante_create' %} ">Crear Nivel Mutante</a>
-    </div>
-    <div>
-        <a href="{% url 'personaje:nivelmutante_list' %} ">Lista de Nivel Mutante</a>
-    </div>
-    <div class="fs-3 pb-4 ">
-        <a href="{% url 'personaje:personaje_create' %} ">Crear de personajes</a>
-    </div>
-    <div>
-        <a href="{% url 'personaje:personaje_list' %} ">Lista de personajes</a>
-    </div>
-    <div class="fs-3 pb-4 ">
-        <a href="{% url 'core:home' %} ">Volver al inicio</a>
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="fs-3 pb-3">
+                    <a href="{% url 'personaje:nivelmutante_create' %}" class="btn btn-primary">Crear Nivel Mutante</a>
+                </div>
+                <div class="pb-3">
+                    <a href="{% url 'personaje:nivelmutante_list' %}" class="btn btn-primary">Lista de Nivel Mutante</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="fs-3 pb-3">
+                    <a href="{% url 'personaje:personaje_create' %}" class="btn btn-primary">Crear Personaje</a>
+                </div>
+                <div class="pb-3">
+                    <a href="{% url 'personaje:personaje_list' %}" class="btn btn-primary">Lista de Personajes</a>
+                </div>
+            </div>
+        </div>
+        <div class="fs-3 pb-4">
+            <a href="{% url 'core:home' %}" class="btn btn-secondary">Volver al inicio</a>
+        </div>
     </div>
 {% endblock contenido %}
