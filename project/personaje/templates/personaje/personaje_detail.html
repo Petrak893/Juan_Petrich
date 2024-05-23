@@ -4,11 +4,24 @@
 {% endblock titulo %}
 {% block contenido %}
     <ul>
-        <li>Nombre: {{object.nombre}}</li>
-        <li>Nombre Real: {{object.nombre_real}}</li>
-        <li>Nivel Mutante: {{object.categoria_id}}</li>
+        <li>Nombre: {{ object.nombre }}</li>
+        <li>Nombre Real: {{ object.nombre_real }}</li>
+        <li>Nivel Mutante: {{ object.categoria_id }}</li>
+        <li>Poderes: {{ object.poderes }}</li>
+        <li>Edad: {{ object.edad }}</li>
+        <li>Biografia: {{ object.biografia }}</li>
+        {% if object.imagen %}
+            <li>
+                Imagen:
+                <img src="{{ object.imagen.url }}"
+                     alt="{{ object.nombre }}"
+                     height="200"
+                     width="200">
+            </li>
+        {% else %}
+            <li>Imagen: No disponible</li>
+        {% endif %}
     </ul>
-
     <div class="fs-3 pb-4 ">
         <a href="{% url 'personaje:home' %} ">Volver al inicio de Personajes</a>
     </div>

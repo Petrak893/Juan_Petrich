@@ -18,6 +18,7 @@ class PersonajeAdmin(admin.ModelAdmin):
         "poderes",
         "edad",
         "fecha_creacion",
+        "imagen"
     )
     list_display_links = ("nombre",)
     search_fields = ("nombre",)
