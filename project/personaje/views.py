@@ -12,7 +12,7 @@ class NivelMutanteList(ListView):
     def get_queryset(self):
         if self.request.GET.get("consulta"):
             consulta = self.request.GET.get("consulta")
-            object_list = models.NivelMutante.objects.filter(nombre__incontains=consulta)
+            object_list = models.NivelMutante.objects.filter(nombre__icontains=consulta)
         else:
             object_list = models.NivelMutante.objects.all()
         return object_list
@@ -38,12 +38,11 @@ class NivelMutanteDelete(LoginRequiredMixin, DeleteView):
 class PersonajeList(ListView):
     model = models.Personaje
     def get_queryset(self):
-        if self.request.GET.get("consulta"):
-            consulta = self.request.GET.get("consulta")
-            object_list = models.Personaje.objects.filter(nombre__incontains=consulta)
-        else:
-            object_list = models.Personaje.objects.all()
-        return object_list
+        queryset = super().get_queryset()
+        consulta = self.request.GET.get("consulta")
+        if consulta:
+            queryset = queryset.filter(nombre__icontains=consulta)
+        return queryset
 
 class PersonajeCreate(LoginRequiredMixin, CreateView):
     model = models.Personaje

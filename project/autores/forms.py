@@ -19,7 +19,3 @@ class AutorForm(forms.ModelForm):
             'biografia': forms.Textarea(attrs={'class': 'form-control'}),
             'imagen': forms.FileInput(attrs={'class': 'form-control-file'}),
         }
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['fecha_nacimiento'].widget.attrs['class'] = 'form-control mt-2'

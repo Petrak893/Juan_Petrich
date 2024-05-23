@@ -13,19 +13,16 @@ class AutorCreateView(CreateView):
     template_name = 'autores/autores_form.html'
     success_url = reverse_lazy('autores:autores_list')
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        kwargs['files'] = self.request.FILES
-        return kwargs
-
-
 class AutorListView(ListView):
     model = models.Autor
     template_name = 'autores/autores_list.html'
+    
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        consulta = self.request.GET.get("consulta")
+        if consulta:
+            queryset = queryset.filter(nombre__icontains=consulta)
+        return queryset
 
 class AutorDetailView(DetailView):
     model = models.Autor
@@ -36,16 +33,6 @@ class AutorUpdateView(UpdateView):
     form_class = forms.AutorForm
     template_name = 'autores/autores_form.html'
     success_url = reverse_lazy('autores:autores_list')
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        kwargs['files'] = self.request.FILES
-        return kwargs
-
 
 class AutorDeleteView(DeleteView):
     model = models.Autor
